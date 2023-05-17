@@ -1,5 +1,5 @@
 const Movies = () => {
-    return(<></>)
-}
+  return <>123</>;
+};
 
 export default Movies;
