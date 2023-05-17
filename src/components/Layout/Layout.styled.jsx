@@ -13,7 +13,7 @@ export const Header = styled.header`
   border-radius: 10px;
   justify-content: center;
   gap: 20px;
-  background-color: #ffa500;
+  background-color: blue;
   box-shadow: 0 0 10px 4px hsl(0deg 0% 38% / 75%);
 `;
 
