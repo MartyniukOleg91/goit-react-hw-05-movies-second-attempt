@@ -15,3 +15,20 @@ export async function trendingmoviesRequest() {
     console.log('error = ', error);
   }
 }
+
+export async function moviesQueryRequest(search) {
+  try {
+    const response = await axios.get(`search/movie`, {
+      params: {
+        api_key: KEY,
+        language: 'en-US',
+        query: search,
+        include_adult: false,
+        page: 1,
+      },
+    });
+    return response;
+  } catch (error) {
+    console.log('error = ', error);
+  }
+}
