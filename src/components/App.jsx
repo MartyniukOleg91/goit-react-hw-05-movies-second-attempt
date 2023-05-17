@@ -1,9 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
-  return (
-    <Routes>
-      <Route></Route>
-    </Routes>
-  );
+  return <div>Oleh</div>;
 };
