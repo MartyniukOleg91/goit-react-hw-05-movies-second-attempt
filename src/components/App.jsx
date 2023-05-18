@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
 const Movies = lazy(() => import('../pages/Movies'));
 const Home = lazy(() => import('../pages/Home'));
@@ -11,16 +11,18 @@ const PageError = lazy(() => import('./PageError/PageError'));
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="movies" element={<Movies />} />
-        <Route path="movies/:movieId" element={<MovieDetails />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<PageError />} />
         </Route>
-        <Route path="*" element={<PageError />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 };
